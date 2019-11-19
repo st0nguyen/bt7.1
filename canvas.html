@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1366px" height="768px" style="border: 1px solid black"></canvas>
+    <script>
+        function Rectangle(width, height) {
+            this.width = width;
+            this.height = height;
+            this.getWidth = function () {
+                return this.width;
+            }
+            this.getHeight = function () {
+                return this.height;
+            }
+            this.setWidth = function (width) {
+                this.width = width;
+            }
+
+            this.setHeight = function (height) {
+                this.height = height;
+            }
+
+            this.getCircuit = function () {
+                return (width + height) * 2;
+            }
+
+            this.getArea = function () {
+                return width * height;
+            }
+
+            this.paint = function () {
+                var canvas = document.getElementById('myCanvas');
+                if (canvas.getContext) {
+                    var context = canvas.getContext('2d');
+                    context.fillRect(50, 50, width, height);
+                } else {
+                    alert("Please a Canvas-Supporting Web Browser");
+                }
+            }
+        }
+        let x = new Rectangle(100, 300);
+        x.setHeight(1500);
+        x.setWidth(500);
+        x.paint();
+    </script>
+</body>
+
+</html>
